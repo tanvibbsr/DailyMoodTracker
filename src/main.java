@@ -20,7 +20,7 @@ public class main{
             switch (userChoice) {
                 case 1 -> {
                     // Add mood entry
-                    System.out.print("Enter the date (MM-DD-YYYY): ");
+                    System.out.print("Enter the date (YYYY-MM-DD): ");
                     LocalDate date = LocalDate.parse(scanner.nextLine());
                     System.out.print("Enter your mood(Happy, Sad, etc.): ");
                     String mood = scanner.nextLine();
