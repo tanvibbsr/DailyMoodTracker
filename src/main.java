@@ -20,18 +20,34 @@ public class main{
 
             switch (userChoice) {
                 case 1 -> {
-                    // Add mood entry
-                    System.out.print("Enter the date (YYYY-MM-DD): ");
-                    LocalDate date = LocalDate.parse(scanner.nextLine());
-                    System.out.print("Enter your mood(Happy, Sad, etc.): ");
-                    String mood = scanner.nextLine();
-                    System.out.print("Enter any notes: ");
-                    String notes = scanner.nextLine();
-                    moodEntry entry = new moodEntry(date, mood, notes);
-                    tracker.addEntry(entry);
-                    fileManager.saveEntries(tracker.getEntries());
-                    System.out.println("Mood entry added successfully.");
-                }
+                    try {
+                        System.out.print("Enter the date (YYYY-MM-DD): ");
+                        String inputDate = scanner.nextLine();
+
+                        LocalDate date = LocalDate.parse(inputDate);
+
+                        System.out.print("Enter your mood (Happy, Sad, etc.): ");
+                        String mood = scanner.nextLine();
+
+                        if (mood == null || mood.trim().isEmpty()) {
+                            System.out.println("Mood cannot be empty!");
+                            break;
+                        }
+
+                        System.out.print("Enter any notes: ");
+                        String notes = scanner.nextLine();
+
+                        moodEntry entry = new moodEntry(date, mood, notes);
+
+                        tracker.addEntry(entry);
+                        fileManager.saveEntries(tracker.getEntries());
+
+                        System.out.println("Mood entry added successfully.");
+
+                    } catch (Exception e) {
+                        System.out.println("Invalid input. Please check date format (YYYY-MM-DD).");
+                    }
+}
                 case 2 -> {
                     System.out.println("\n----------All Entries----------");
                     if (tracker.getEntries().isEmpty()) {
