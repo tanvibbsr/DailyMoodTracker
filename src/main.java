@@ -5,6 +5,7 @@ public class main{
     public static void main(String[] args) {
 
         moodTracker tracker = new moodTracker();
+        tracker.setEntries(fileManager.loadEntries());
 
         int userChoice;
         try (Scanner scanner = new Scanner(System.in)) {
@@ -28,6 +29,7 @@ public class main{
                     String notes = scanner.nextLine();
                     moodEntry entry = new moodEntry(date, mood, notes);
                     tracker.addEntry(entry);
+                    fileManager.saveEntries(tracker.getEntries());
                     System.out.println("Mood entry added successfully.");
                 }
                 case 2 -> {

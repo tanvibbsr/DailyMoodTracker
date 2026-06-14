@@ -1,10 +1,12 @@
 import java.util.ArrayList;
+import java.util.List;
 
-public class moodTracker{
-    private final ArrayList<moodEntry> entries;
+public class moodTracker {
+
+    private ArrayList<moodEntry> entries;
 
     public moodTracker() {
-        this.entries = new ArrayList<>();
+        entries = new ArrayList<>();
     }
 
     public void addEntry(moodEntry entry) {
@@ -13,5 +15,9 @@ public class moodTracker{
 
     public ArrayList<moodEntry> getEntries() {
         return entries;
+    }
+
+    public void setEntries(List<moodEntry> loadedEntries) {
+        entries = new ArrayList<>(loadedEntries);
     }
 }
