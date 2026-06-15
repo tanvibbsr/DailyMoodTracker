@@ -38,7 +38,8 @@ DailyMoodTracker/
 │
 ├── data/
 │   └── moods.csv
-│
+|
+│──.gitignore
 └── README.md
 ```
 
