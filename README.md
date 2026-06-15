@@ -31,11 +31,10 @@ Data is stored locally in a CSV file and does not require a database.
 ```
 DailyMoodTracker/
 │
-├── src/
-│   ├── main.java
-│   ├── moodEntry.java
-│   ├── moodTracker.java
-│   └── fileManager.java
+│──main.java
+│──moodEntry.java
+│──moodTracker.java
+│──fileManager.java
 │
 ├── data/
 │   └── moods.csv

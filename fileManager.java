@@ -4,23 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class fileManager {
-    private static final String FILE_NAME = "C:\\Users\\jbisw\\OneDrive - UNT System\\Documents\\application\\DailyMoodTracker\\data\\moods.csv";
+    private static final String FILE_NAME = "data\\moods.csv";
 
     // Methods for saving and loading mood entries from a file
     public static void saveEntries(List<moodEntry> entries) {
+    
+    File file = new File(FILE_NAME);
+    file.getParentFile().mkdirs();
 
-    System.out.println("Saving " + entries.size() + " entries");
-    System.out.println("Writing to file: " + new File(FILE_NAME).getAbsolutePath());
-
-    try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_NAME))) {
+    try (PrintWriter writer = new PrintWriter(new FileWriter(file))) {
 
         for (moodEntry entry : entries) {
-
-            System.out.println("Writing entry: "
-                    + entry.getDate() + ","
-                    + entry.getMood() + ","
-                    + entry.getNotes());
-
             writer.println(
                     entry.getDate() + ","
                     + entry.getMood() + ","
